@@ -5,12 +5,7 @@ import { AboutComponent } from '../shared/components/about/about.component';
 import { TeamComponent } from '../shared/components/team/team.component';
 import { ProjectComponent } from '../shared/components/project/project.component';
 import { DataService } from '../core/services/data.service';
-
-interface Team {
-  name: string,
-  rol: string,
-  image: string
-}
+import { IT } from '../core/models/page.model';
 
 @Component({
   selector: 'app-home',
@@ -20,10 +15,13 @@ interface Team {
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit{
-  personsData: Team[] = []
-  dataService = inject(DataService)
+  personsData: IT.Team[] = []
+  projectsData: IT.Project[] = []
 
+  dataService = inject(DataService)
+  
   ngOnInit(){
     this.dataService.getTeam().subscribe((data) => (this.personsData = data))
+    this.dataService.getProject().subscribe((data) => (this.projectsData) = data)
   }
 }

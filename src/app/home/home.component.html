@@ -1,7 +1,16 @@
 <div class="bg-home min-h-screen flex flex-col">
   <app-navbar></app-navbar>
+  <div class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+    <h3>About</h3>
+  </div>
   <app-about></app-about>
-  <app-project></app-project>
+  <div class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+    <h3>Projects</h3>
+  </div>
+  <app-project [projects]="projectsData"></app-project>
+  <div class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+    <h3>Team</h3>
+  </div>
   <app-team [persons]="personsData"></app-team>
   <app-footer></app-footer>
 </div>
